@@ -1,7 +1,6 @@
 import streamlit as st
 import datetime
 import requests
-import numpy
 import pandas as pd
 
 '''
@@ -29,7 +28,7 @@ Either as with the title by just creating a string (or an f-string). Or as with 
 
 #date and time
 
-pickup_datetime = st.datetime_input(
+pickup_datetime = st.date_input(
     "Select a date and time",
     datetime.datetime(2019, 1, 1, 12, 00),
 )
@@ -87,12 +86,12 @@ data = dict(
 
 #3. Let's call our API using the `requests` package...
 
-response = requests.get(url=url, params=data).json()
-
-try:
-  response.raise_for_status()
-  prediction = response['fare']
-  print(f'The fare amount is equal to {prediction}')
-except requests.exceptions.HTTPError as e:
-  print(f'The api rejected the api call. Probably a valiation error: {e} ')
+if st.button("Predict"):
+  response = requests.get(url=url, params=data).json()
+  try:
+    response.raise_for_status()
+    prediction = response['fare']
+    st.success(f'The fare amount is equal to {prediction}', icon="🚀")
+  except requests.exceptions.HTTPError as e:
+    print(f'The api rejected the api call. Probably a valiation error: {e}')
 
