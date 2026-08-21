@@ -87,7 +87,7 @@ data = dict(
 #3. Let's call our API using the `requests` package...
 
 if st.button("Predict"):
-  response = requests.get(url=url, params=data).json()
+  response = requests.get(url=url, params=data)
   try:
     response.raise_for_status()
     prediction = response['fare']
