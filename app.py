@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 import requests
 import numpy
-import pandas
+import pandas as pd
 
 '''
 # TaxiFareModel front
@@ -87,7 +87,7 @@ data = dict(
 
 #3. Let's call our API using the `requests` package...
 
-response = requests.get(url=url, params=data)
+response = requests.get(url=url, params=data).json()
 
 try:
   response.raise_for_status()
