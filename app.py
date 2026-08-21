@@ -76,7 +76,7 @@ url = 'https://taxifare.lewagon.ai/predict'
 #2. Let's build a dictionary containing the parameters for our API...
 
 data = dict(
-          pickup_datetime=[pd.Timestamp(pickup_datetime, tz='UTC')],
+          pickup_datetime= pickup_datetime,
           pickup_longitude=pickup_longitude,
           pickup_latitude=pickup_latitude,
           dropoff_longitude=dropoff_longitude,
@@ -93,5 +93,5 @@ if st.button("Predict"):
     prediction = response.json()['fare']
     st.success(f'The fare amount is equal to {prediction}', icon="🚀")
   except requests.exceptions.HTTPError as e:
-    print(f'The api rejected the api call. Probably a valiation error: {e}')
+    st.error(f'The API rejected the call: {e}')
 
