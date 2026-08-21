@@ -29,7 +29,7 @@ Either as with the title by just creating a string (or an f-string). Or as with 
 
 #date and time
 
-pickup_datetime = st.date_input(
+pickup_datetime = st.datetime_input(
     "Select a date and time",
     datetime.datetime(2019, 1, 1, 12, 00),
 )
