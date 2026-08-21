@@ -90,7 +90,7 @@ if st.button("Predict"):
   response = requests.get(url=url, params=data)
   try:
     response.raise_for_status()
-    prediction = response['fare']
+    prediction = response.json()['fare']
     st.success(f'The fare amount is equal to {prediction}', icon="🚀")
   except requests.exceptions.HTTPError as e:
     print(f'The api rejected the api call. Probably a valiation error: {e}')
