@@ -61,8 +61,7 @@ def get_map_data():
 
 df = get_map_data()
 
-st.map(df)
-
+st.map(data=df, latitude="col1", longitude="col2", color=color)
 
 '''
 ## Once we have these, let's call our API in order to retrieve a prediction
