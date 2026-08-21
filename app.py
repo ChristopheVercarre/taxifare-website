@@ -31,7 +31,7 @@ Either as with the title by just creating a string (or an f-string). Or as with 
 
 pickup_datetime = st.datetime_input(
     "Select a date and time",
-    datetime.datetime(2019, 1, 1, 12, 00),
+    datetime.datetime(2014, 7, 6, 19, 18),
 )
 st.write("Date and time set for", pickup_datetime)
 
